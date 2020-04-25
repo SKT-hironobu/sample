@@ -14,6 +14,14 @@ class Hello extends React.Component {
 
           <Button title={ this.props.hello }
                 onPress={ this._handlePress.bind(this) } />
+                
+        <TextInput
+          style={{height: 40, width:300, borderColor: 'gray', borderWidth: 1}}
+          onChangeText={ (text) => this.props.updateHello2(text) }
+          value={ this.props.hello2 } />
+                
+          <Button title={ this.props.hello2 }
+                onPress={ this._handlePress2.bind(this) } />
       </View>
     );
   }
@@ -22,6 +30,12 @@ class Hello extends React.Component {
   _handlePress(e) {
     Alert.alert(this.props.hello);
   }
+  
+  _handlePress2(e) {
+    Alert.alert(this.props.hello2);
+  }
 }
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Hello);
