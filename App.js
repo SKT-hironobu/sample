@@ -1,12 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import Hello from './Hello.js';
+import reducer from './reducer.js';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+const store = createStore(reducer);
+
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={ store }>
+        <View style={styles.container}>
+          <Hello />
+        </View>
+      </Provider>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -17,3 +27,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
