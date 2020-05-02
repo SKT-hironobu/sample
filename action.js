@@ -11,6 +11,12 @@ export function mapDispatchToProps(dispatch) {
     
     updateHello2: (text) => {
       dispatch( {type: 'HELLO_WORLD2', hello2: text} );
+    },
+    
+    updateContent: (html) => {
+      dispatch( {type: 'CONTENT_CHANGE', content: html} );
     }
+    
+    
   }
 }

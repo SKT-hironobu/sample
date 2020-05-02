@@ -1,6 +1,7 @@
 const initialState = {
   hello: "Hello World",
-  hello2: "Hello World2"
+  hello2: "Hello World2",
+  content: "firstcontent"
 }
 
 export default function reducer(state = initialState, action) {
@@ -17,6 +18,12 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         hello2: action.hello2
+      };
+      
+    case 'CONTENT_CHANGE':
+      return {
+        ...state,
+        content: action.content
       };
 
     default:
